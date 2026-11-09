@@ -1,9 +1,9 @@
 using MediaBrowser.Model.Plugins;
 
-namespace Jellyfin.Plugin.BetterPlay.Configuration;
+namespace Jellyfin.Plugin.CleanStream.Configuration;
 
-/// <summary>What BetterPlay is allowed to do.</summary>
-public enum BetterPlayMode
+/// <summary>What CleanStream is allowed to do.</summary>
+public enum CleanStreamMode
 {
     /// <summary>Does nothing at all.</summary>
     Off,
@@ -17,7 +17,7 @@ public enum BetterPlayMode
 
 public class PluginConfiguration : BasePluginConfiguration
 {
-    public BetterPlayMode Mode { get; set; } = BetterPlayMode.WatchOnly;
+    public CleanStreamMode Mode { get; set; } = CleanStreamMode.WatchOnly;
 
     // What the probe records (each can be switched off on the dashboard).
     public bool RecordPlaybackInfo { get; set; } = true;

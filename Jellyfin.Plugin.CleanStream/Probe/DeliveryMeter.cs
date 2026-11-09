@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Features;
 
-namespace Jellyfin.Plugin.BetterPlay.Probe;
+namespace Jellyfin.Plugin.CleanStream.Probe;
 
 /// <summary>
 /// Times every video delivery (HLS playlists and segments, direct streams, downloads) and artwork download: bytes sent,
-/// time to first byte, total time. Segment timing against segment length is how BetterPlay will see an app's buffer
+/// time to first byte, total time. Segment timing against segment length is how CleanStream will see an app's buffer
 /// drain before it freezes. Strictly pass-through: it only counts. Every write, file send and flush goes straight to
 /// Jellyfin's own response, unchanged and unbuffered.
 /// </summary>

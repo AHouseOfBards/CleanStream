@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Jellyfin.Plugin.BetterPlay\Jellyfin.Plugin.BetterPlay.csproj" />
+    <ProjectReference Include="..\Jellyfin.Plugin.CleanStream\Jellyfin.Plugin.CleanStream.csproj" />
   </ItemGroup>
 
 </Project>

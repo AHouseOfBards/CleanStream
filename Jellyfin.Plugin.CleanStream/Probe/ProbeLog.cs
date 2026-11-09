@@ -3,10 +3,10 @@ using System.Text.Json;
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
 using System.Threading.Channels;
-using Jellyfin.Plugin.BetterPlay.Configuration;
+using Jellyfin.Plugin.CleanStream.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Jellyfin.Plugin.BetterPlay.Probe;
+namespace Jellyfin.Plugin.CleanStream.Probe;
 
 /// <summary>
 /// Records probe events. Callers never wait on disk and never see an exception: events go to a bounded queue that a
@@ -44,9 +44,9 @@ public sealed class ProbeLog : IDisposable
 
     public static PluginConfiguration? Config => Plugin.Instance?.Configuration;
 
-    public static bool Enabled => Config?.Mode is BetterPlayMode.WatchOnly or BetterPlayMode.On;
+    public static bool Enabled => Config?.Mode is CleanStreamMode.WatchOnly or CleanStreamMode.On;
 
-    public static string? Folder => Plugin.Instance is null ? null : Path.Combine(Plugin.Instance.DataFolderPath, "probe");
+    public static string? Folder => Plugin.Instance is null ? null : Path.Combine(Plugin.Instance.DataFolder, "probe");
 
     public long Dropped => Interlocked.Read(ref _dropped);
 
@@ -99,7 +99,7 @@ public sealed class ProbeLog : IDisposable
         }
         catch (Exception ex)
         {
-            _logger.LogDebug(ex, "BetterPlay probe: could not record an event");
+            _logger.LogDebug(ex, "CleanStream probe: could not record an event");
         }
     }
 
@@ -234,7 +234,7 @@ public sealed class ProbeLog : IDisposable
         }
         catch (Exception ex)
         {
-            _logger.LogWarning(ex, "BetterPlay probe: log writer stopped");
+            _logger.LogWarning(ex, "CleanStream probe: log writer stopped");
         }
     }
 
@@ -251,7 +251,7 @@ public sealed class ProbeLog : IDisposable
         catch (Exception ex)
         {
             Interlocked.Add(ref _dropped, lines.Count);
-            _logger.LogDebug(ex, "BetterPlay probe: could not write the log file");
+            _logger.LogDebug(ex, "CleanStream probe: could not write the log file");
         }
 
         lines.Clear();
@@ -275,13 +275,13 @@ public sealed class ProbeLog : IDisposable
                 {
                     File.WriteAllText(f + ".tmp", clean);
                     File.Move(f + ".tmp", f, true);
-                    _logger.LogInformation("BetterPlay probe: removed keys from {File}", Path.GetFileName(f));
+                    _logger.LogInformation("CleanStream probe: removed keys from {File}", Path.GetFileName(f));
                 }
             }
         }
         catch (Exception ex)
         {
-            _logger.LogWarning(ex, "BetterPlay probe: could not scrub old log files");
+            _logger.LogWarning(ex, "CleanStream probe: could not scrub old log files");
         }
     }
 
@@ -305,7 +305,7 @@ public sealed class ProbeLog : IDisposable
         }
         catch (Exception ex)
         {
-            _logger.LogDebug(ex, "BetterPlay probe: log cleanup failed");
+            _logger.LogDebug(ex, "CleanStream probe: log cleanup failed");
         }
     }
 

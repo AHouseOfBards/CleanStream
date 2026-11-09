@@ -1,8 +1,8 @@
 using System.Text.Json.Nodes;
-using Jellyfin.Plugin.BetterPlay.Probe;
+using Jellyfin.Plugin.CleanStream.Probe;
 using Xunit;
 
-namespace Jellyfin.Plugin.BetterPlay.Tests;
+namespace Jellyfin.Plugin.CleanStream.Tests;
 
 public class SessionAnalyzerTests
 {

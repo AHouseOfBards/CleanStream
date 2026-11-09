@@ -1,6 +1,6 @@
 using System.Text.Json.Nodes;
 
-namespace Jellyfin.Plugin.BetterPlay.Probe;
+namespace Jellyfin.Plugin.CleanStream.Probe;
 
 /// <summary>
 /// Reads each play session's health from the timing of the player's own requests, which a buffering reverse proxy

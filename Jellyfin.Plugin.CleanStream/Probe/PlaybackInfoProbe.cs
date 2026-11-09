@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 
-namespace Jellyfin.Plugin.BetterPlay.Probe;
+namespace Jellyfin.Plugin.CleanStream.Probe;
 
 /// <summary>
 /// Records each PlaybackInfo request (what the app asks for and can play) and Jellyfin's answer (the versions, in the
@@ -54,7 +54,7 @@ public sealed class PlaybackInfoProbe : IAsyncActionFilter
         }
         catch (Exception ex)
         {
-            _logger.LogDebug(ex, "BetterPlay: could not record a PlaybackInfo response");
+            _logger.LogDebug(ex, "CleanStream: could not record a PlaybackInfo response");
         }
     }
 
@@ -90,7 +90,7 @@ public sealed class PlaybackInfoProbe : IAsyncActionFilter
         }
         catch (Exception ex)
         {
-            _logger.LogDebug(ex, "BetterPlay: could not record a PlaybackInfo request");
+            _logger.LogDebug(ex, "CleanStream: could not record a PlaybackInfo request");
             return null;
         }
     }

@@ -2,33 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>BetterPlay</title>
+    <title>CleanStream</title>
 </head>
 <body>
-<div id="BetterPlayConfigPage" data-role="page" class="page type-interior pluginConfigurationPage" data-require="emby-input,emby-button,emby-select,emby-checkbox">
+<div id="CleanStreamConfigPage" data-role="page" class="page type-interior pluginConfigurationPage" data-require="emby-input,emby-button,emby-select,emby-checkbox">
     <div data-role="content">
         <div class="content-primary">
             <style>
-                #BetterPlayConfigPage .bp-card { background: rgba(127,127,127,.08); border-radius: 8px; padding: 1em 1.2em; margin: 0 0 1.2em; }
-                #BetterPlayConfigPage .bp-card h3 { margin: 0 0 .6em; }
-                #BetterPlayConfigPage table { width: 100%; border-collapse: collapse; font-size: .92em; }
-                #BetterPlayConfigPage th, #BetterPlayConfigPage td { text-align: left; padding: .35em .5em; border-bottom: 1px solid rgba(127,127,127,.2); vertical-align: top; }
-                #BetterPlayConfigPage .bp-ok { color: #4caf50; font-weight: 600; }
-                #BetterPlayConfigPage .bp-wait { opacity: .7; }
-                #BetterPlayConfigPage .bp-muted { opacity: .7; font-size: .9em; }
-                #BetterPlayConfigPage .bp-row { display: flex; gap: .6em; flex-wrap: wrap; align-items: flex-end; }
-                #BetterPlayConfigPage .bp-row > * { flex: 1 1 10em; }
-                #BetterPlayConfigPage pre { white-space: pre-wrap; word-break: break-word; max-height: 24em; overflow: auto; font-size: .82em; background: rgba(0,0,0,.25); padding: .6em; border-radius: 4px; margin: .3em 0 0; }
-                #BetterPlayConfigPage .bp-event { cursor: pointer; }
-                #BetterPlayConfigPage .bp-scroll { overflow-x: auto; }
-                #BetterPlayConfigPage .bp-warn { background: rgba(255,152,0,.15); border-left: 3px solid #ff9800; padding: .5em .8em; margin: .6em 0; border-radius: 4px; }
-                #BetterPlayConfigPage .bp-Healthy { color: #4caf50; font-weight: 600; }
-                #BetterPlayConfigPage .bp-AtRisk { color: #ff9800; font-weight: 600; }
-                #BetterPlayConfigPage .bp-Stalled { color: #f44336; font-weight: 600; }
+                #CleanStreamConfigPage .bp-card { background: rgba(127,127,127,.08); border-radius: 8px; padding: 1em 1.2em; margin: 0 0 1.2em; }
+                #CleanStreamConfigPage .bp-card h3 { margin: 0 0 .6em; }
+                #CleanStreamConfigPage table { width: 100%; border-collapse: collapse; font-size: .92em; }
+                #CleanStreamConfigPage th, #CleanStreamConfigPage td { text-align: left; padding: .35em .5em; border-bottom: 1px solid rgba(127,127,127,.2); vertical-align: top; }
+                #CleanStreamConfigPage .bp-ok { color: #4caf50; font-weight: 600; }
+                #CleanStreamConfigPage .bp-wait { opacity: .7; }
+                #CleanStreamConfigPage .bp-muted { opacity: .7; font-size: .9em; }
+                #CleanStreamConfigPage .bp-row { display: flex; gap: .6em; flex-wrap: wrap; align-items: flex-end; }
+                #CleanStreamConfigPage .bp-row > * { flex: 1 1 10em; }
+                #CleanStreamConfigPage pre { white-space: pre-wrap; word-break: break-word; max-height: 24em; overflow: auto; font-size: .82em; background: rgba(0,0,0,.25); padding: .6em; border-radius: 4px; margin: .3em 0 0; }
+                #CleanStreamConfigPage .bp-event { cursor: pointer; }
+                #CleanStreamConfigPage .bp-scroll { overflow-x: auto; }
+                #CleanStreamConfigPage .bp-warn { background: rgba(255,152,0,.15); border-left: 3px solid #ff9800; padding: .5em .8em; margin: .6em 0; border-radius: 4px; }
+                #CleanStreamConfigPage .bp-Healthy { color: #4caf50; font-weight: 600; }
+                #CleanStreamConfigPage .bp-AtRisk { color: #ff9800; font-weight: 600; }
+                #CleanStreamConfigPage .bp-Stalled { color: #f44336; font-weight: 600; }
             </style>
 
-            <h2>BetterPlay</h2>
-            <p class="bp-muted">Probe release: BetterPlay records how each app asks for and plays video, so later releases can choose
+            <h2>CleanStream</h2>
+            <p class="bp-muted">Probe release: CleanStream records how each app asks for and plays video, so later releases can choose
                 versions and prevent freezes. In this release it <b>never changes playback</b>.</p>
 
             <!-- Status -->
@@ -53,7 +53,7 @@
             <!-- Settings -->
             <div class="bp-card">
                 <h3>Settings</h3>
-                <form id="BetterPlayConfigForm">
+                <form id="CleanStreamConfigForm">
                     <div class="selectContainer">
                         <label class="selectLabel" for="bpMode">Mode</label>
                         <select is="emby-select" id="bpMode" class="emby-select-withcolor emby-select">
@@ -75,7 +75,7 @@
                     </div>
                     <div class="checkboxContainer checkboxContainer-withDescription">
                         <label class="emby-checkbox-label"><input id="bpRecordVideoDelivery" type="checkbox" is="emby-checkbox" /><span>Time video delivery</span></label>
-                        <div class="fieldDescription checkboxFieldDescription">How long each video segment or file chunk takes to send. This is how BetterPlay will spot buffering.</div>
+                        <div class="fieldDescription checkboxFieldDescription">How long each video segment or file chunk takes to send. This is how CleanStream will spot buffering.</div>
                     </div>
                     <div class="checkboxContainer checkboxContainer-withDescription">
                         <label class="emby-checkbox-label"><input id="bpRecordImages" type="checkbox" is="emby-checkbox" /><span>Time artwork downloads</span></label>
@@ -104,7 +104,7 @@
                         <tbody id="bpSessions"></tbody>
                     </table>
                 </div>
-                <p class="bp-muted">BetterPlay reads health from when the player asks for each piece of video. A player on a link that keeps up asks
+                <p class="bp-muted">CleanStream reads health from when the player asks for each piece of video. A player on a link that keeps up asks
                     about once per segment length (shown under the gap, e.g. "6.0 s / 6 s"); slower than that means its buffer is draining.
                     <b>At risk</b>: requests are late or the buffer is under two segments. <b>Stalled</b>: the player's position stopped
                     moving while not paused. <span id="bpProxyNote"></span></p>
@@ -156,7 +156,7 @@
     <script type="text/javascript">
         (function () {
             var pluginId = '575fdaea-52dd-4363-a84b-69c5c52daded';
-            var page = document.querySelector('#BetterPlayConfigPage');
+            var page = document.querySelector('#CleanStreamConfigPage');
             var timer = null;
 
             var hookInfo = [
@@ -169,7 +169,7 @@
             function $(sel) { return page.querySelector(sel); }
             function el(tag, text, cls) { var e = document.createElement(tag); if (text !== undefined && text !== null) { e.textContent = text; } if (cls) { e.className = cls; } return e; }
             function row(cells) { var tr = document.createElement('tr'); cells.forEach(function (c) { var td = document.createElement('td'); if (c instanceof Node) { td.appendChild(c); } else { td.textContent = c === undefined || c === null ? '' : c; } tr.appendChild(td); }); return tr; }
-            function url(path, params) { return ApiClient.getUrl('BetterPlay/' + path, params || {}); }
+            function url(path, params) { return ApiClient.getUrl('CleanStream/' + path, params || {}); }
             function when(iso) { if (!iso) { return '—'; } var d = new Date(iso); return isNaN(d) ? iso : d.toLocaleString(); }
             function ago(iso) { if (!iso) { return '—'; } var s = Math.round((Date.now() - new Date(iso)) / 1000); if (s < 60) { return s + ' s ago'; } if (s < 3600) { return Math.round(s / 60) + ' min ago'; } return Math.round(s / 3600) + ' h ago'; }
             function ticks(t) { if (t === null || t === undefined) { return '—'; } var s = Math.floor(t / 1e7); var h = Math.floor(s / 3600), m = Math.floor(s / 60) % 60, x = s % 60; return (h ? h + ':' : '') + (h && m < 10 ? '0' : '') + m + ':' + (x < 10 ? '0' : '') + x; }
@@ -214,7 +214,7 @@
                         t.appendChild(row([f.name, f.kb + ' KB', b]));
                     });
                     logs.appendChild(t);
-                }, function () { $('#bpStatusLine').textContent = 'Could not reach BetterPlay. Is the server restarted after install?'; });
+                }, function () { $('#bpStatusLine').textContent = 'Could not reach CleanStream. Is the server restarted after install?'; });
             }
 
             function loadSessions() {
@@ -233,7 +233,7 @@
                             x.seeks + ' / ' + x.reRequests, x.mb + ' MB']));
                     });
                     $('#bpProxyNote').textContent = hidden
-                        ? 'A proxy on the server (e.g. nginx with buffering) receives video faster than viewers do, so the server-side transfer speed is not the viewer\'s speed; BetterPlay relies on request timing instead.'
+                        ? 'A proxy on the server (e.g. nginx with buffering) receives video faster than viewers do, so the server-side transfer speed is not the viewer\'s speed; CleanStream relies on request timing instead.'
                         : '';
                 });
             }
@@ -281,7 +281,7 @@
             function download(name) {
                 fetch(url('Logs/' + encodeURIComponent(name)), { headers: { Authorization: 'MediaBrowser Token="' + ApiClient.accessToken() + '"' } })
                     .then(function (r) { if (!r.ok) { throw new Error(r.status); } return r.blob(); })
-                    .then(function (b) { var a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'betterplay-' + name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000); })
+                    .then(function (b) { var a = document.createElement('a'); a.href = URL.createObjectURL(b); a.download = 'cleanstream-' + name; document.body.appendChild(a); a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000); })
                     .catch(function () { Dashboard.alert('Could not download ' + name); });
             }
 
@@ -301,7 +301,7 @@
                 ApiClient.ajax({ type: 'POST', url: url('Clear') }).then(function () { loadEvents(); refreshAll(); });
             });
 
-            $('#BetterPlayConfigForm').addEventListener('submit', function (ev) {
+            $('#CleanStreamConfigForm').addEventListener('submit', function (ev) {
                 ev.preventDefault();
                 Dashboard.showLoadingMsg();
                 ApiClient.getPluginConfiguration(pluginId).then(function (c) {

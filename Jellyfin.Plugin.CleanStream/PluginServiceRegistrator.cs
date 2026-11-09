@@ -1,13 +1,13 @@
-using Jellyfin.Plugin.BetterPlay.Probe;
+using Jellyfin.Plugin.CleanStream.Probe;
 using MediaBrowser.Controller;
 using MediaBrowser.Controller.Plugins;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Jellyfin.Plugin.BetterPlay;
+namespace Jellyfin.Plugin.CleanStream;
 
-/// <summary>Registers BetterPlay's hooks with Jellyfin's web host.</summary>
+/// <summary>Registers CleanStream's hooks with Jellyfin's web host.</summary>
 public class PluginServiceRegistrator : IPluginServiceRegistrator
 {
     public void RegisterServices(IServiceCollection serviceCollection, IServerApplicationHost applicationHost)

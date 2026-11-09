@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
-    <RootNamespace>Jellyfin.Plugin.BetterPlay</RootNamespace>
-    <AssemblyName>Jellyfin.Plugin.BetterPlay</AssemblyName>
+    <RootNamespace>Jellyfin.Plugin.CleanStream</RootNamespace>
+    <AssemblyName>Jellyfin.Plugin.CleanStream</AssemblyName>
     <Version>0.1.0.0</Version>
     <AssemblyVersion>$(Version)</AssemblyVersion>
     <FileVersion>$(Version)</FileVersion>

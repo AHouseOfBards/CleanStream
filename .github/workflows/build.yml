@@ -18,6 +18,6 @@ jobs:
         with:
           dotnet-version: '10.0.x'
       - name: Build against Jellyfin ${{ matrix.jellyfin }}
-        run: dotnet build Jellyfin.Plugin.BetterPlay -c Release -p:JellyfinVersion=${{ matrix.jellyfin }}
+        run: dotnet build Jellyfin.Plugin.CleanStream -c Release -p:JellyfinVersion=${{ matrix.jellyfin }}
       - name: Test (redaction, session health)
-        run: dotnet test Jellyfin.Plugin.BetterPlay.Tests -c Release -p:JellyfinVersion=${{ matrix.jellyfin }}
+        run: dotnet test Jellyfin.Plugin.CleanStream.Tests -c Release -p:JellyfinVersion=${{ matrix.jellyfin }}

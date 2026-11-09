@@ -4,7 +4,7 @@ using MediaBrowser.Controller.Session;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Jellyfin.Plugin.BetterPlay.Probe;
+namespace Jellyfin.Plugin.CleanStream.Probe;
 
 /// <summary>
 /// Records playback start / progress / stop as each app reports them: how often, what position, paused or not, how
@@ -29,7 +29,7 @@ public sealed class SessionWatcher : IHostedService
         _sessions.PlaybackStart += OnStart;
         _sessions.PlaybackProgress += OnProgress;
         _sessions.PlaybackStopped += OnStopped;
-        _logger.LogInformation("BetterPlay: watching playback sessions");
+        _logger.LogInformation("CleanStream: watching playback sessions");
         return Task.CompletedTask;
     }
 
@@ -67,7 +67,7 @@ public sealed class SessionWatcher : IHostedService
         }
         catch (Exception ex)
         {
-            _logger.LogDebug(ex, "BetterPlay: could not record a playback event");
+            _logger.LogDebug(ex, "CleanStream: could not record a playback event");
         }
     }
 

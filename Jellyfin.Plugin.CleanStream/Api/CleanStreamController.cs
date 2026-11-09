@@ -1,6 +1,6 @@
 using System.Text.Json.Nodes;
 using System.Text.RegularExpressions;
-using Jellyfin.Plugin.BetterPlay.Probe;
+using Jellyfin.Plugin.CleanStream.Probe;
 using MediaBrowser.Common.Api;
 using MediaBrowser.Common.Configuration;
 using MediaBrowser.Common.Net;
@@ -8,19 +8,20 @@ using MediaBrowser.Controller.Configuration;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Jellyfin.Plugin.BetterPlay.Api;
+namespace Jellyfin.Plugin.CleanStream.Api;
 
-/// <summary>Admin-only endpoints behind the BetterPlay dashboard page.</summary>
+/// <summary>Admin-only endpoints behind the CleanStream dashboard page.</summary>
 [ApiController]
-[Route("BetterPlay")]
+[Route("CleanStream")]
+[Route("BetterPlay")] // Old name (probe releases 0.1–0.2); remove after 0.3.
 [Authorize(Policy = Policies.RequiresElevation)]
-public class BetterPlayController : ControllerBase
+public class CleanStreamController : ControllerBase
 {
     private static readonly Regex LogName = new(@"^\d{4}-\d{2}-\d{2}\.jsonl$", RegexOptions.Compiled);
     private readonly ProbeLog _log;
     private readonly IServerConfigurationManager _config;
 
-    public BetterPlayController(ProbeLog log, IServerConfigurationManager config)
+    public CleanStreamController(ProbeLog log, IServerConfigurationManager config)
     {
         _log = log;
         _config = config;
@@ -115,10 +116,10 @@ public class BetterPlayController : ControllerBase
         }
 
         var stream = new FileStream(path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite | FileShare.Delete);
-        return File(stream, "application/x-ndjson", "betterplay-" + name);
+        return File(stream, "application/x-ndjson", "cleanstream-" + name);
     }
 
-    /// <summary>Server settings that change how playback behaves or how BetterPlay reads it, plus warnings.</summary>
+    /// <summary>Server settings that change how playback behaves or how CleanStream reads it, plus warnings.</summary>
     private JsonObject ServerSnapshot()
     {
         var o = new JsonObject();
