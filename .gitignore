@@ -3,3 +3,5 @@ obj/
 artifacts/
 *.user
 .vs/
+# Design docs stay local
+design/

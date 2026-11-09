@@ -6,8 +6,6 @@ A Jellyfin 12.x plugin that makes every app start fast, play the original whenev
 quality smoothly when it doesn't. It's built never to make a playback that would have worked worse.
 
 **Status: probe release.** It only records how each app requests and plays video. It never changes playback.
-- The plan: [docs/CleanStream-design.md](docs/CleanStream-design.md)
-- The detailed algorithms: [docs/CleanStream-technical.md](docs/CleanStream-technical.md)
 
 CleanStream was called BetterPlay up to 0.2. Updating from BetterPlay keeps your settings and logs.
 
