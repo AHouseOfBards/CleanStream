@@ -5,3 +5,9 @@ artifacts/
 .vs/
 # Design docs stay local
 design/
+
+# Local Claude Code settings
+.claude/settings.local.json
+CLAUDE.md
+CLAUDE.local.md
+*.private.md

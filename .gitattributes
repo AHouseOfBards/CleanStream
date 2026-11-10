@@ -1,0 +1,2 @@
+tools/*.sh -text
+tests/gate.sh -text
