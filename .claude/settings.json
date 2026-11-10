@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/tools/bash-guard.sh\"",
+            "timeout": 60,
+            "statusMessage": "Checking repository rules"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "sh \"$CLAUDE_PROJECT_DIR/../Campground-Coordination/tools/session-start.sh\" cleanstream",
+            "timeout": 60,
+            "statusMessage": "Checking the Campground issue board"
+          }
+        ]
+      }
+    ]
+  }
+}

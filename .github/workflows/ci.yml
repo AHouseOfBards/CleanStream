@@ -1,0 +1,46 @@
+# .github/workflows/ci.yml for a Campground plugin. It runs the same gate the agent runs at the desk.
+name: ci
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Every Jellyfin package the plugin claims to support. The lowest one is what ships; newer ones catch API
+        # drift before a user does. A plugin that supports 10.11 too adds 10.11.x here (and the 9.0 SDK below), and,
+        # because it multi-targets, sets tfm on every entry (net9.0 for 10.11.x, net10.0 for 12.x). Otherwise a 12.x
+        # package is restored for net9.0 and fails with NU1202. A single-target plugin leaves tfm empty.
+        jellyfin: ['12.0.0', '12.1.0', '12.2.0', '12.3.0', '12.4.0']
+        tfm: ['']
+    name: gate (Jellyfin ${{ matrix.jellyfin }})
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # guard-public and the gate read history
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            9.0.x
+            10.0.x
+      - name: Gate
+        env:
+          JELLYFIN_VERSION: ${{ matrix.jellyfin }}
+          JELLYFIN_TFM: ${{ matrix.tfm }}
+        run: sh tests/gate.sh
+
+  kit-rules:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Kit tools are unedited
+        # tools/bash-guard.sh, tools/guard-public.sh and tests/gate.sh come from the kit; change them in
+        # Campground-Coordination methodology/kit, then re-copy.
+        run: sh tools/check-kit.sh
