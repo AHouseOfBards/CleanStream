@@ -10,7 +10,8 @@ codec handling.
 CleanStream is one of the [Campground](https://github.com/AHouseOfBards/Campground-Jellyfin) plugins for Jellyfin.
 When it's ready, it will be offered there.
 
-Built with AI Assistance
+CleanStream is written with assistance from artificial intelligence models, but is still primarily built, tested and
+maintained by me, Bards.
 
 ## License
 
